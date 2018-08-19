@@ -25,7 +25,7 @@
 
             <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Login</button>
 
-            <p>Não possui cadastro? <a href="#">crie uma conta.</a></p>
+            <p>Não possui cadastro? <a href="cadastro.jsp">crie uma conta.</a></p>
         </form>
 
         <script src="../resources/js/jquery.js"></script>
