@@ -23,17 +23,17 @@
                     <!-- Primeira coluna -->
                     <div class="col mr-4">
                         <div class="form-label-group">
-                            <label class="mb-0"> Nome</label>
+                            <label class="mb-0"> Nome: </label>
                             <input type="text" name="nome" class="form-control">
                         </div>
 
                         <div class="form-label-group">
-                            <label class="mb-0"> Email </label>
+                            <label class="mb-0"> Email: </label>
                             <input type="email" name="email" class="form-control">
                         </div>
 
                         <div class="form-label-group">
-                            <label class="mb-0"> Sexo </label>
+                            <label class="mb-0"> Sexo: </label>
                             <div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="sexo" value="m">
@@ -49,43 +49,53 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="form-label-group">
-                            <label class="mb-0"> Profissão <small>(opcional)</small> </label>
-                            <input type="text" name="profissao" class="form-control">
+                            <label class="mb-0"> Senha: </label>
+                            <input type="password" name="senha" class="form-control">
                         </div>
-
+                        
                         <div class="form-label-group">
-                            <label class="mb-0"> Telefone <small>(opcional)</small> </label>
+                            <label class="mb-0"> Confirme sua senha: </label>
+                            <input type="password" name="senha2" class="form-control">
+                        </div>
+                                                
+                        <div class="form-label-group">
+                            <label class="mb-0"> Telefone <small>(opcional)</small>: </label>
                             <input type="text" name="profissao" class="form-control">
                         </div>
                     </div>
 
                     <!-- Segunda coluna -->
-                    <div class="col">
+                    <div class="col">                        
                         <div class="form-label-group">
-                            <label class="mb-0"> Rua</label>
+                            <label class="mb-0"> Rua: </label>
                             <input type="text" name="rua" class="form-control">
                         </div>
 
                         <div class="form-label-group">
-                            <label class="mb-0"> Cidade </label>
+                            <label class="mb-0"> Cidade: </label>
                             <input type="text" name="cidade" class="form-control">
                         </div>
 
                         <div class="form-label-group">
-                            <label class="mb-0"> Estado </label>
+                            <label class="mb-0"> Estado: </label>
                             <input type="text" name="estado" class="form-control">
                         </div>
 
                         <div class="form-label-group">
-                            <label class="mb-0"> Número </label>
+                            <label class="mb-0"> Número: </label>
                             <input type="text" name="numero" class="form-control">
                         </div>
 
                         <div class="form-label-group">
-                            <label class="mb-0"> CEP </label>
+                            <label class="mb-0"> CEP: </label>
                             <input type="text" name="cep" class="form-control">
+                        </div>
+                        
+                        <div class="form-label-group">
+                            <label class="mb-0"> Profissão <small>(opcional)</small>: </label>
+                            <input type="text" name="profissao" class="form-control">
                         </div>
                     </div>
                 </div>
