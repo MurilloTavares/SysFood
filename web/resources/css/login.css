@@ -1,0 +1,16 @@
+body{
+    color: #fff;    
+    display: flex;
+    background-image: linear-gradient(#060505, #2d3025);
+}
+
+.form-signin {
+  max-width: 350px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}

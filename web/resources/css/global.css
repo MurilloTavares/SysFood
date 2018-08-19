@@ -1,0 +1,23 @@
+html,
+body {
+  height: 100%;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #E68301;
+  border-color: #E68301;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #AB6306;
+  border-color: #AB6306;
+}
+
+
+p a {
+    color: #E68301;
+}
+p a:hover{
+    color: #AB6306;
+}
