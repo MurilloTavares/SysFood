@@ -5,6 +5,7 @@ import java.io.File;
 import model.Usuario;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -24,13 +25,16 @@ public class UsuarioDAO {
         stmt.setString(2, u.getSenha());
         stmt.setString(3, u.getNome());
         
+        // Caso foto == null, salva foto default
         File foto = u.getFoto();
-        if (foto != null){
-            FileInputStream fis = new FileInputStream(foto);            
-            stmt.setBinaryStream(4, fis, (int)foto.length());
+        InputStream is;
+        if (foto == null){
+            is = getClass().getResourceAsStream("resource/img/defaultProfilePic.png");            
         } else {
-            stmt.setNull(4, java.sql.Types.OTHER);
-        }
+            is = new FileInputStream(foto);            
+        }        
+        
+        stmt.setBinaryStream(4, is);
         
         stmt.setString(5, u.getCep());
         stmt.setString(6, u.getRua());
@@ -43,8 +47,7 @@ public class UsuarioDAO {
         stmt.executeUpdate();
         
         stmt.close();
-        connection.close();
-        
+        connection.close();        
     }
     
 }

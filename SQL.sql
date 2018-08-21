@@ -8,7 +8,7 @@ CREATE TABLE public.usuario
   email character varying(50) NOT NULL,
   senha character(60) NOT NULL,
   nome character varying(100) NOT NULL,
-  foto bytea,
+  foto bytea NOT NULL,
   
   cep character(8) NOT NULL,
   rua character varying(100) NOT NULL,
