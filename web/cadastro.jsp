@@ -3,10 +3,10 @@
 
 <html>
     <head>
-        <title>Login</title>    
-        <link href="../resources/css/bootstrap.css" rel="stylesheet">
-        <link href="../resources/css/global.css" rel="stylesheet">
-        <link href="../resources/css/cadastro.css" rel="stylesheet">
+        <title> Cadastro </title>    
+        <link href="resources/css/bootstrap.css" rel="stylesheet">
+        <link href="resources/css/global.css" rel="stylesheet">
+        <link href="resources/css/cadastro.css" rel="stylesheet">
     </head>
 
     <body>
@@ -14,11 +14,13 @@
             <!-- Cabecalho -->
             <div class="d-flex bg-light p-3 align-text-bottom">
                 <h6 class="mt-auto mb-0 ml-3">Crie sua conta:</h6>
-                <img class="ml-auto mr-3" src="../resources/img/logo.png" height="40"/> 
+                <img class="ml-auto mr-3" src="resources/img/logo.png" height="40"/> 
             </div>
 
             <!-- Corpo do formulario -->
-            <form>   
+            <form action="main" method="post">
+                <input type="hidden" name="action" value="cadastro">
+                
                 <div class="row">
                     <!-- Primeira coluna -->
                     <div class="col mr-4">
@@ -33,7 +35,7 @@
                         </div>
 
                         <div class="form-label-group">
-                            <label class="mb-0"> Sexo: </label>
+                            <label class="mb-0"> Sexo <small>(opcional)</small>: </label>
                             <div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="sexo" value="m">
@@ -113,8 +115,8 @@
 
         </div>
 
-        <script src="../resources/js/jquery.js"></script>
-        <script src="../resources/js/popper.js"></script>
-        <script src="../resources/js/bootstrap.js"></script>
+        <script src="resources/js/jquery.js"></script>
+        <script src="resources/js/popper.js"></script>
+        <script src="resources/js/bootstrap.js"></script>
     </body>
 </html>

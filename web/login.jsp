@@ -4,14 +4,14 @@
 <html>
     <head>
         <title>Login</title>    
-        <link href="../resources/css/bootstrap.css" rel="stylesheet">
-        <link href="../resources/css/global.css" rel="stylesheet">
-        <link href="../resources/css/login.css" rel="stylesheet">
+        <link href="resources/css/bootstrap.css" rel="stylesheet">
+        <link href="resources/css/global.css" rel="stylesheet">
+        <link href="resources/css/login.css" rel="stylesheet">
     </head>
 
     <body>
         <form class="form-signin">
-            <img src="../resources/img/logo.png" class="img-fluid mb-3"/>
+            <img src="resources/img/logo.png" class="img-fluid mb-3"/>
 
             <div class="form-label-group">
                 <label class="mb-0"> Email </label>
@@ -28,9 +28,9 @@
             <p>Não possui cadastro? <a href="cadastro.jsp">crie uma conta.</a></p>
         </form>
 
-        <script src="../resources/js/jquery.js"></script>
-        <script src="../resources/js/popper.js"></script>
-        <script src="../resources/js/bootstrap.js"></script>
+        <script src="resources/js/jquery.js"></script>
+        <script src="resources/js/popper.js"></script>
+        <script src="resources/js/bootstrap.js"></script>
     </body>
 </html>
 

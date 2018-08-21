@@ -29,7 +29,7 @@ public class UsuarioDAO {
         File foto = u.getFoto();
         InputStream is;
         if (foto == null){
-            is = getClass().getResourceAsStream("resource/img/defaultProfilePic.png");            
+            is = getClass().getResourceAsStream("../resources/img/defaultProfilePic.png");            
         } else {
             is = new FileInputStream(foto);            
         }        
