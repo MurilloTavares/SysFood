@@ -15,8 +15,11 @@ CREATE TABLE public.usuario
   cidade character varying(50) NOT NULL,
   estado character varying(50) NOT NULL,
   numero character varying(10) NOT NULL,
+  
   sexo character(1),
+  telefone character varying(11),
   profissao character varying(50),
   descricao character varying(200),
+  
   CONSTRAINT usuario_pkey PRIMARY KEY (email)
 )

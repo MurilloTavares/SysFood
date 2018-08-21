@@ -14,9 +14,9 @@ public class UsuarioDAO {
     
     public void salvar(Usuario u) throws SQLException, FileNotFoundException{
         
-        String sql = "INSERT INTO Usuario(email, senha, nome, foto, cep,"
-                + " rua, cidade, estado, numero, sexo, profissao, descricao)"
-                + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Usuario(email, senha, nome, foto, cep, rua,"
+                + " cidade, estado, numero, sexo, telefone, profissao, descricao)"
+                + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         Connection connection = ConnectionFactory.connect();
         PreparedStatement stmt = connection.prepareStatement(sql);
@@ -42,8 +42,9 @@ public class UsuarioDAO {
         stmt.setString(8, u.getEstado());
         stmt.setString(9, u.getNumero());
         stmt.setString(10, u.getSexo());
-        stmt.setString(11, u.getProfissao());
-        stmt.setString(12, u.getDescricao());
+        stmt.setString(11, u.getTelefone());
+        stmt.setString(12, u.getProfissao());
+        stmt.setString(13, u.getDescricao());
         stmt.executeUpdate();
         
         stmt.close();

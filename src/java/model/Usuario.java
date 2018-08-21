@@ -17,8 +17,25 @@ public class Usuario {
     private String numero;
 
     private String sexo;
+    private String telefone;
     private String profissao;
     private String descricao;
+
+    public Usuario(String email, String senha, String nome, File foto, String cep, String rua, String cidade, String estado, String numero, String sexo, String telefone, String profissao, String descricao) {
+        this.email = email;
+        this.senha = senha;
+        this.nome = nome;
+        this.foto = foto;
+        this.cep = cep;
+        this.rua = rua;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.numero = numero;
+        this.sexo = sexo;
+        this.telefone = telefone;
+        this.profissao = profissao;
+        this.descricao = descricao;
+    }
 
     public Usuario() {
     }
@@ -102,7 +119,15 @@ public class Usuario {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+    
+    public String getTelefone() {
+        return telefone;
+    }
 
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+    
     public String getProfissao() {
         return profissao;
     }
@@ -121,19 +146,20 @@ public class Usuario {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 31 * hash + Objects.hashCode(this.email);
-        hash = 31 * hash + Objects.hashCode(this.senha);
-        hash = 31 * hash + Objects.hashCode(this.nome);
-        hash = 31 * hash + Objects.hashCode(this.foto);
-        hash = 31 * hash + Objects.hashCode(this.cep);
-        hash = 31 * hash + Objects.hashCode(this.rua);
-        hash = 31 * hash + Objects.hashCode(this.cidade);
-        hash = 31 * hash + Objects.hashCode(this.estado);
-        hash = 31 * hash + Objects.hashCode(this.numero);
-        hash = 31 * hash + Objects.hashCode(this.sexo);
-        hash = 31 * hash + Objects.hashCode(this.profissao);
-        hash = 31 * hash + Objects.hashCode(this.descricao);
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.email);
+        hash = 97 * hash + Objects.hashCode(this.senha);
+        hash = 97 * hash + Objects.hashCode(this.nome);
+        hash = 97 * hash + Objects.hashCode(this.foto);
+        hash = 97 * hash + Objects.hashCode(this.cep);
+        hash = 97 * hash + Objects.hashCode(this.rua);
+        hash = 97 * hash + Objects.hashCode(this.cidade);
+        hash = 97 * hash + Objects.hashCode(this.estado);
+        hash = 97 * hash + Objects.hashCode(this.numero);
+        hash = 97 * hash + Objects.hashCode(this.sexo);
+        hash = 97 * hash + Objects.hashCode(this.telefone);
+        hash = 97 * hash + Objects.hashCode(this.profissao);
+        hash = 97 * hash + Objects.hashCode(this.descricao);
         return hash;
     }
 
@@ -176,6 +202,9 @@ public class Usuario {
         if (!Objects.equals(this.sexo, other.sexo)) {
             return false;
         }
+        if (!Objects.equals(this.telefone, other.telefone)) {
+            return false;
+        }
         if (!Objects.equals(this.profissao, other.profissao)) {
             return false;
         }
@@ -190,7 +219,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "email=" + email + ", senha=" + senha + ", nome=" + nome + ", foto=" + foto + ", cep=" + cep + ", rua=" + rua + ", cidade=" + cidade + ", estado=" + estado + ", numero=" + numero + ", sexo=" + sexo + ", profissao=" + profissao + ", descricao=" + descricao + '}';
+        return "Usuario{" + "email=" + email + ", senha=" + senha + ", nome=" + nome + ", foto=" + foto + ", cep=" + cep + ", rua=" + rua + ", cidade=" + cidade + ", estado=" + estado + ", numero=" + numero + ", sexo=" + sexo + ", telefone=" + telefone + ", profissao=" + profissao + ", descricao=" + descricao + '}';
     }
-
+    
 }
