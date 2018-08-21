@@ -1,3 +1,5 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -10,11 +12,25 @@
     </head>
 
     <body>
+        <%-- Variavel de erros --%>
+        <%! Map<String, String> errors; %>
+        <% errors = (HashMap) request.getAttribute("errors"); %>
+        
+        <%! String isInvalid(String attName){
+            if (errors == null || errors.get(attName) == null) { return ""; }
+            else { return "is-invalid"; }       
+        } %>
+        
+        <%! String getErrorMsg(String attName){
+            if (errors == null || errors.get(attName) == null) { return ""; }
+            else { return errors.get(attName); }       
+        } %>
+        
         <div class="cadastro-form">
             <!-- Cabecalho -->
             <div class="d-flex bg-light p-3 align-text-bottom">
                 <h6 class="mt-auto mb-0 ml-3">Crie sua conta:</h6>
-                <img class="ml-auto mr-3" src="resources/img/logo.png" height="40"/> 
+                <img class="ml-auto mr-3" src="resources/img/logo.png" height="40"/>
             </div>
 
             <!-- Corpo do formulario -->
@@ -25,13 +41,15 @@
                     <!-- Primeira coluna -->
                     <div class="col mr-4">
                         <div class="form-label-group">
-                            <label class="mb-0"> Nome: </label>
-                            <input type="text" name="nome" class="form-control">
+                            <label class="mb-0"> Nome: </label>                                                                                   
+                            <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroNome")%> </small>
+                            <input type="text" name="nome" class="form-control <%= isInvalid("erroNome") %> "> 
                         </div>
 
                         <div class="form-label-group">
-                            <label class="mb-0"> Email: </label>
-                            <input type="email" name="email" class="form-control">
+                            <label class="mb-0"> Email: </label>                                                        
+                            <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroEmail")%> </small>
+                            <input type="email" name="email" class="form-control <%= isInvalid("erroEmail") %> ">
                         </div>
 
                         <div class="form-label-group">
@@ -53,13 +71,15 @@
                         </div>
                         
                         <div class="form-label-group">
-                            <label class="mb-0"> Senha: </label>
-                            <input type="password" name="senha" class="form-control">
+                            <label class="mb-0"> Senha: </label>                                                                                    
+                            <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroSenha")%> </small>
+                            <input type="password" name="senha" class="form-control <%= isInvalid("erroSenha") %> ">
                         </div>
                         
                         <div class="form-label-group">
-                            <label class="mb-0"> Confirme sua senha: </label>
-                            <input type="password" name="senha2" class="form-control">
+                            <label class="mb-0"> Confirme sua senha: </label>                                                                                   
+                            <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroSenha2")%> </small>
+                            <input type="password" name="senha2" class="form-control <%= isInvalid("erroSenha2") %> "> 
                         </div>
                                                 
                         <div class="form-label-group">
@@ -71,28 +91,33 @@
                     <!-- Segunda coluna -->
                     <div class="col">                        
                         <div class="form-label-group">
-                            <label class="mb-0"> Rua: </label>
-                            <input type="text" name="rua" class="form-control">
+                            <label class="mb-0"> Rua: </label>                            
+                            <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroRua")%> </small>
+                            <input type="text" name="rua" class="form-control <%= isInvalid("erroRua") %> ">
                         </div>
 
                         <div class="form-label-group">
-                            <label class="mb-0"> Cidade: </label>
-                            <input type="text" name="cidade" class="form-control">
+                            <label class="mb-0"> Cidade: </label>                            
+                            <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroCidade")%> </small>
+                            <input type="text" name="cidade" class="form-control  <%= isInvalid("erroCidade") %> ">
                         </div>
 
                         <div class="form-label-group">
-                            <label class="mb-0"> Estado: </label>
-                            <input type="text" name="estado" class="form-control">
+                            <label class="mb-0"> Estado: </label>                            
+                            <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroEstado")%> </small>
+                            <input type="text" name="estado" class="form-control <%= isInvalid("erroEstado") %> ">
                         </div>
 
                         <div class="form-label-group">
-                            <label class="mb-0"> Número: </label>
-                            <input type="text" name="numero" class="form-control">
+                            <label class="mb-0"> Número: </label>                            
+                            <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroNumero")%> </small>
+                            <input type="text" name="numero" class="form-control <%= isInvalid("erroNumero") %> ">
                         </div>
 
                         <div class="form-label-group">
-                            <label class="mb-0"> CEP: </label>
-                            <input type="text" name="cep" class="form-control">
+                            <label class="mb-0"> CEP: </label>                            
+                            <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroCep")%> </small>
+                            <input type="text" name="cep" class="form-control <%= isInvalid("erroCep") %> ">
                         </div>
                         
                         <div class="form-label-group">

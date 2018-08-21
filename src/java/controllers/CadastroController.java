@@ -32,7 +32,7 @@ public class CadastroController implements CommandIF{
         
         String senha2 = request.getParameter("senha2");
         if(senha2.isEmpty() || !senha2.equals(senha)){
-            errors.put("erroSenha2", "As senhas não são iguais.");
+            errors.put("erroSenha2", "Senhas diferente.");
         }
         
         String nome = request.getParameter("nome");
@@ -41,16 +41,28 @@ public class CadastroController implements CommandIF{
         }
                 
         String cep = request.getParameter("cep");
-        String rua = request.getParameter("rua");
-        String cidade = request.getParameter("cidade");
-        String estado = request.getParameter("estado");
-        String numero = request.getParameter("numero");
+        if(nome.isEmpty()){
+            errors.put("erroCep", "Endereco obrigatório.");
+        }
         
-        if(cep.isEmpty() || rua.isEmpty() || cidade.isEmpty() || 
-                estado.isEmpty() || numero.isEmpty()){
-            
-            errors.put("erroEndereco", "Endereço obrigatório.");
-            
+        String rua = request.getParameter("rua");
+        if(nome.isEmpty()){
+            errors.put("erroRua", "Endereco obrigatório.");
+        }
+        
+        String cidade = request.getParameter("cidade");
+        if(nome.isEmpty()){
+            errors.put("erroCidade", "Endereco obrigatório.");
+        }
+        
+        String estado = request.getParameter("estado");
+        if(nome.isEmpty()){
+            errors.put("erroEstado", "Endereco obrigatório.");
+        }
+        
+        String numero = request.getParameter("numero");
+        if(nome.isEmpty()){
+            errors.put("erroNumero", "Endereco obrigatório.");
         }
         
         String sexo = request.getParameter("sexo");
