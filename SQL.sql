@@ -17,7 +17,7 @@ CREATE TABLE public.usuario
   numero character varying(10) NOT NULL,
   
   sexo character(1),
-  telefone character varying(11),
+  telefone character (9),
   profissao character varying(50),
   descricao character varying(200),
   

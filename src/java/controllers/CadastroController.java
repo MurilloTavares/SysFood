@@ -41,33 +41,40 @@ public class CadastroController implements CommandIF{
         }
                 
         String cep = request.getParameter("cep");
-        if(nome.isEmpty()){
+        if(cep.isEmpty()){
             errors.put("erroCep", "Endereco obrigatório.");
+        } else {
+            if(cep.length() < 8){
+                errors.put("erroCep", "CEP incompleto");
+            }
         }
         
         String rua = request.getParameter("rua");
-        if(nome.isEmpty()){
+        if(rua.isEmpty()){
             errors.put("erroRua", "Endereco obrigatório.");
         }
         
         String cidade = request.getParameter("cidade");
-        if(nome.isEmpty()){
+        if(cidade.isEmpty()){
             errors.put("erroCidade", "Endereco obrigatório.");
         }
         
         String estado = request.getParameter("estado");
-        if(nome.isEmpty()){
+        if(estado.isEmpty()){
             errors.put("erroEstado", "Endereco obrigatório.");
         }
         
         String numero = request.getParameter("numero");
-        if(nome.isEmpty()){
+        if(numero.isEmpty()){
             errors.put("erroNumero", "Endereco obrigatório.");
         }
         
         String sexo = request.getParameter("sexo");
         
         String telefone = request.getParameter("telefone");
+        if(telefone.length() > 0 && telefone.length() < 9){
+            errors.put("erroTelefone", "Telefone incompleto.");
+        }
         
         String profissao = request.getParameter("profissao");
         

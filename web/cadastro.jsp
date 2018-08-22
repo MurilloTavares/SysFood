@@ -26,6 +26,11 @@
             else { return errors.get(attName); }       
         } %>
         
+        <%! String notNull(String string){
+            if (string == null) { return ""; }
+            else { return string; }            
+        } %>
+        
         <div class="cadastro-form">
             <!-- Cabecalho -->
             <div class="d-flex bg-light p-3 align-text-bottom">
@@ -35,7 +40,6 @@
 
             <!-- Corpo do formulario -->
             <form action="main" method="post">
-                <input type="hidden" name="action" value="cadastro">
                 
                 <div class="row">
                     <!-- Primeira coluna -->
@@ -43,13 +47,15 @@
                         <div class="form-label-group">
                             <label class="mb-0"> Nome: </label>                                                                                   
                             <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroNome")%> </small>
-                            <input type="text" name="nome" class="form-control <%= isInvalid("erroNome") %> "> 
+                            <input type="text" name="nome" maxlength="100" class="form-control <%= isInvalid("erroNome") %> " 
+                                   value="<%= notNull(request.getParameter("nome")) %>"> 
                         </div>
 
                         <div class="form-label-group">
                             <label class="mb-0"> Email: </label>                                                        
                             <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroEmail")%> </small>
-                            <input type="email" name="email" class="form-control <%= isInvalid("erroEmail") %> ">
+                            <input type="email" name="email" maxlength="50" class="form-control <%= isInvalid("erroEmail") %> " 
+                                   value="<%= notNull(request.getParameter("email")) %>">
                         </div>
 
                         <div class="form-label-group">
@@ -83,8 +89,9 @@
                         </div>
                                                 
                         <div class="form-label-group">
-                            <label class="mb-0"> Telefone <small>(opcional)</small>: </label>
-                            <input type="text" name="profissao" class="form-control">
+                            <label class="mb-0"> Telefone <small>(opcional)</small>: </label>                                                                                  
+                            <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroTelefone")%> </small>
+                            <input type="number" onKeyDown="if(this.value.length==9) return false;" name="telefone" class="form-control <%= isInvalid("erroTelefone") %> ">
                         </div>
                     </div>
 
@@ -93,36 +100,40 @@
                         <div class="form-label-group">
                             <label class="mb-0"> Rua: </label>                            
                             <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroRua")%> </small>
-                            <input type="text" name="rua" class="form-control <%= isInvalid("erroRua") %> ">
+                            <input type="text" name="rua" maxlength="100" class="form-control <%= isInvalid("erroRua") %> " 
+                                   value="<%= notNull(request.getParameter("rua")) %>" >
                         </div>
 
                         <div class="form-label-group">
                             <label class="mb-0"> Cidade: </label>                            
                             <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroCidade")%> </small>
-                            <input type="text" name="cidade" class="form-control  <%= isInvalid("erroCidade") %> ">
+                            <input type="text" name="cidade" maxlength="50" class="form-control  <%= isInvalid("erroCidade") %> " 
+                                   value="<%= notNull(request.getParameter("cidade")) %>">
                         </div>
 
                         <div class="form-label-group">
                             <label class="mb-0"> Estado: </label>                            
                             <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroEstado")%> </small>
-                            <input type="text" name="estado" class="form-control <%= isInvalid("erroEstado") %> ">
+                            <input type="text" name="estado" maxlength="50" class="form-control <%= isInvalid("erroEstado") %> " 
+                                   value="<%= notNull(request.getParameter("estado")) %>">
                         </div>
 
                         <div class="form-label-group">
                             <label class="mb-0"> Número: </label>                            
                             <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroNumero")%> </small>
-                            <input type="text" name="numero" class="form-control <%= isInvalid("erroNumero") %> ">
+                            <input type="number" name="numero" onKeyDown="if(this.value.length==10) return false;" class="form-control <%= isInvalid("erroNumero") %> ">
                         </div>
 
                         <div class="form-label-group">
                             <label class="mb-0"> CEP: </label>                            
                             <small class="invalid-feedback d-inline"> <%= getErrorMsg("erroCep")%> </small>
-                            <input type="text" name="cep" class="form-control <%= isInvalid("erroCep") %> ">
+                            <input id="cep" type="number" onKeyDown="if(this.value.length==8) return false;" name="cep" class="form-control <%= isInvalid("erroCep") %> ">
                         </div>
                         
                         <div class="form-label-group">
                             <label class="mb-0"> Profissão <small>(opcional)</small>: </label>
-                            <input type="text" name="profissao" class="form-control">
+                            <input type="text" name="profissao" maxlength="50" class="form-control" 
+                                   value="<%= notNull(request.getParameter("profissao")) %>" >
                         </div>
                     </div>
                 </div>
@@ -132,7 +143,8 @@
                     <div class="col-2">
                         <p><a href="login.jsp">voltar</a></p>
                     </div>
-                    <div class="col-8">
+                    <div class="col-8">                        
+                        <input type="hidden" name="action" value="cadastro">
                         <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Cadastrar</button>
                     </div>
                 </div>
