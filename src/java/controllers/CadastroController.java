@@ -9,6 +9,8 @@ import Interfaces.CommandIF;
 import dao.UsuarioDAO;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Usuario;
 
 public class CadastroController implements CommandIF{
@@ -18,11 +20,21 @@ public class CadastroController implements CommandIF{
        
         // Pegando atributos e Validando os dados        
         // <Atributo, Mensagem de Erro>
-        Map<String, String> errors = new HashMap<>();
+        Map<String, String> errors = new HashMap<>();        
+        
+        UsuarioDAO dao = new UsuarioDAO();
         
         String email = request.getParameter("email");
         if(email.isEmpty()){
             errors.put("erroEmail", "Email obrigatório.");
+        }
+        
+        try {
+            if(dao.getUser(email) != null){
+                errors.put("erroEmail", "Email já cadastrado.");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         String senha = request.getParameter("senha");
@@ -87,8 +99,6 @@ public class CadastroController implements CommandIF{
         // Tentando salvar usuario no banco
         Usuario user = new Usuario(email, senha, nome, null, cep, rua, cidade,
                                    estado, numero, sexo, telefone, profissao, null);
-        
-        UsuarioDAO dao = new UsuarioDAO();
         
         try {
             dao.salvar(user);
