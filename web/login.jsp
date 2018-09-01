@@ -10,7 +10,7 @@
     </head>
 
     <body>
-        <form class="form-signin">
+        <form class="form-signin" action="main" method="post">
             <img src="resources/img/logo.png" class="img-fluid mb-3"/>
 
             <div class="form-label-group">
@@ -22,7 +22,8 @@
                 <label class="mb-0"> Senha </label>
                 <input type="password" name="senha" class="form-control">
             </div>
-
+            
+            <input type="hidden" name="action" value="login">
             <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Login</button>
 
             <p>Não possui cadastro? <a href="cadastro.jsp">crie uma conta.</a></p>

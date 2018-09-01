@@ -19,6 +19,7 @@ public class FrontController extends HttpServlet {
     @Override
     public void init() throws ServletException {
         commandMap.put("cadastro", new CadastroController());
+        commandMap.put("login", new LoginController());
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

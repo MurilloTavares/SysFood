@@ -6,7 +6,7 @@
 CREATE TABLE public.usuario
 (
   email character varying(50) NOT NULL,
-  senha character(60) NOT NULL,
+  senha character varying(64) NOT NULL,
   nome character varying(100) NOT NULL,
   foto bytea NOT NULL,
   
