@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import util.Crypt;
 
 public class UsuarioDAO {
 
@@ -28,7 +29,7 @@ public class UsuarioDAO {
         PreparedStatement stmt = connection.prepareStatement(sql);
 
         stmt.setString(1, u.getEmail());
-        stmt.setString(2, u.getSenha());
+        stmt.setString(2, Crypt.encrypt(u.getSenha()));
         stmt.setString(3, u.getNome());
 
         // Caso foto == null, salva foto default
@@ -98,7 +99,7 @@ public class UsuarioDAO {
 
         Usuario user = getUser(email);
         
-        if (user.getSenha().equals(senha)) {
+        if (Crypt.checkPassword(senha, user.getSenha())) {
             return user;
         } else {
             return null;
