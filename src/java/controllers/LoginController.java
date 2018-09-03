@@ -28,13 +28,14 @@ public class LoginController implements CommandIF{
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        if(user != null){
+        if(user == null){
+            request.setAttribute("erroLogin", "Email ou senha inválida.");
+            return "login.jsp";
+        } else {            
             request.getSession().setAttribute("usuario", user);
             System.out.println("--- USUARIO LOGADO ---");
             System.out.println(user);
             return "home.jsp";
-        } else {
-            return "login.jsp";
         }
         
     }

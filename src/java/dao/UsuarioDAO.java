@@ -98,6 +98,9 @@ public class UsuarioDAO {
     public Usuario userValidate(String email, String senha) throws SQLException, IOException {
 
         Usuario user = getUser(email);
+        if (user == null){
+            return user;
+        }
         
         if (Crypt.checkPassword(senha, user.getSenha())) {
             return user;

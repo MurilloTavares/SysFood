@@ -10,12 +10,17 @@
     </head>
 
     <body>
+        
+        <%  String erro = (String) request.getAttribute("erroLogin"); 
+            String email = request.getParameter("email"); %>
+        
         <form class="form-signin" action="main" method="post">
             <img src="resources/img/logo.png" class="img-fluid mb-3"/>
 
             <div class="form-label-group">
                 <label class="mb-0"> Email </label>
-                <input type="email" name="email" class="form-control">
+                <small class="invalid-feedback d-inline"> <%= erro==null ? "" : erro %> </small>
+                <input type="email" name="email" class="form-control <%= erro==null ? "" : "is-invalid" %>" >
             </div>
 
             <div class="form-label-group">
